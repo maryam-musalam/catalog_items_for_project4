@@ -302,9 +302,6 @@ def uploader():
         if request.form['catagory'] == '':
             flash("you need to select category name")
             return redirect(request.url)
-        if 'file' not in request.files:
-            flash("no file has been selected")
-            return redirect(request.url)
         newItem = ElectronicItems(name=request.form['name'],
                                   description=request.form['description'],
                                   price=request.form['price'],
