@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<section id="banner" class="py-5 text-center text-white">
+	<h2>Electronics Categories</h2>
+</section>
+<!--Categories-->
+<section id="categories" class="bg-dark text-white py-5 text-center m-auto" align="center">
+	<a class="btn btn-outline-success" href="{{ url_for('addItem') }}"> Add new Item </a>
+	<div class="mb-5 text-center" style="min-height:100px;overflow:hidden" align="center">
+		{% for i in electronic %}
+		<div class="show-category-div m-3  text-center" align="center">
+			<img width="100%" height="220" src="{{ url_for('static', filename=i[0].image) }}" />
+			<h5 class="text-center m-2">{{i[0].name}}</h5>
+			<hr style="background-color:#267F73; width: 90%">
+			<h6 class="text-left ml-3 mb-2"><i class="fas fa-cart-plus"></i> New item :{{i[1].name}} </h6>
+			<a href="{{url_for('viewItems' , category_id = i[0].id )}}" class="btn btn-outline-primary mb-2 know-more-program mt-3 mb-3"> See items </a>
+		</div>
+		{% endfor %}
+	</div>
+</section>
+
+{% include "footer.html" %}
+{% endblock %}

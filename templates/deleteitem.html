@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+{% block content %}
+<nav class="navbar navbar-expand-md navbar-light fixed-top py-4">
+	<div class="container">
+		<a class="navbar-brand" href="{{url_for('electronics')}}">Electronics</a>
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link" href="{{url_for('gdisconnect')}}">logout</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+<section id="categories" class="bg-dark text-white py-5 text-center m-auto" align="center" style="min-width:100px!important">
+	<div class="delete-div m-3 text-center" style="min-width:100px!important">
+		<h2 class="mb-3 mt-5"> Are you sure you want to delete <snap style="color:orange">{{items.name}}</snap>? </h2>
+		<form class="mb-3" action="#" method='post'>
+			<button type="submit" class="btn btn-danger delete" id="submit" type="submit">
+				Delete</button>
+			<a class="btn btn-outline-primary" href="{{ url_for('electronics') }}"> back</a>
+		</form>
+	</div>
+</section>
+
+{% include "footer.html" %}
+{% endblock %}

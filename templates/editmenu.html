@@ -1,0 +1,70 @@
+{% extends "main.html" %}
+{% block content %}
+<nav class="navbar navbar-expand-md navbar-light fixed-top py-4">
+	<div class="container">
+		<a class="navbar-brand" href="{{url_for('electronics')}}">Electronics</a>
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link" href="{{url_for('gdisconnect')}}">logout</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+<section id="banner" class="py-5 text-center text-white">
+	<h2>Edit Item</h2>
+</section>
+<!-- add new item -->
+<section id="categories" class="bg-dark text-white py-5 text-center m-auto" align="center">
+	{% include "alert_message.html" %}
+	<div class="form">
+		<form action="{{ url_for('editItem' , category_id = category_id , item_id = i.id )}}" method="POST" enctype="multipart/form-data" align="center">
+			<div class="form-row">
+				<div class="col mb-2">
+					<label class="col" for="name">Item Name : </label>
+				</div>
+				<div class="col mb-2">
+					<input value="{{i.name}}" class="col" class="form-control form-control-lg" type="text" name="name" placeholder="Enter item name ">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col mb-2">
+					<label class="col" for="price">Item Price : </label>
+				</div>
+				<div class="col mb-2">
+					<input value="{{i.price}}" class="col" type="text" name="price" placeholder="Enter item price ">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col mb-2">
+					<label class="col" for="price">Item Description : </label>
+				</div>
+				<div class="col mb-2">
+					<textarea class="col" name="description" placeholder="Enter description here">{{i.description}}
+                    </textarea>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col mb-2">
+					<label class="col" for="gender">Category</label>
+				</div>
+				<div class="col mb-2">
+					<select name="catagory" class="form-control" id="gender">
+						<option value="{{catagory.id}}">{{catagory.name}}</option>
+						<option value="1">Phones</option>
+						<option value="2">Laptops</option>
+						<option value="3">Tabltes</option>
+						<option value="4">Accessories</option>
+					</select>
+				</div>
+			</div>
+
+
+			<br>
+			<input class="btn btn-success mb-2 mt-2" type="submit" />
+
+			<a href="{{ url_for('electronics') }}" class="align-middle btn btn-primary mb-2 know-more-program mt-3 mb-3"> back </a>
+		</form>
+	</div>
+</section>
+{% include "footer.html" %}
+{% endblock %}
