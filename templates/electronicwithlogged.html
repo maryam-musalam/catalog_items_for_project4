@@ -20,7 +20,6 @@
 	<div class="mb-5 text-center" style="min-height:100px;overflow:hidden" align="center">
 		{% for i in electronic %}
 		<div class="show-category-div m-3  text-center" align="center">
-			<img width="100%" height="220" src="{{ url_for('static', filename=i[0].image) }}" />
 			<a href="{{url_for('viewItems' , category_id = i[0].id )}}">
 				<h5 class="text-center m-2">{{i[0].name}}</h5>
 			</a>
