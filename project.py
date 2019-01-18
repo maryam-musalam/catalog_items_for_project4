@@ -309,7 +309,6 @@ def uploader():
                                   user_id=login_session['user_id'])
         session.add(newItem)
         session.commit()
-        flash("new item has been added")
         return redirect(url_for('electronics'))
     else:
         return redirect(url_for('addItem'))
